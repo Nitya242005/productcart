@@ -1,0 +1,195 @@
+
+/* General Styling */
+body { 
+    font-family: 'Arial', sans-serif;
+    background-image: url(back.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+    animation: bgAnimation 10s infinite alternate ease-in-out;
+}
+
+/* Background Animation */
+@keyframes bgAnimation {
+    0% { filter: brightness(1); }
+    100% { filter: brightness(1.1); }
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 1000px; 
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    padding: 20px;
+    height: fit-content;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Container Glow Effect */
+.container::before {
+    content: "🛒 Welcome to Our Shop! 🎉";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff7675;
+}
+
+/* Headings */
+h2{
+    color: #222;
+    font-size: 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    padding:10px;
+}
+
+/* Product List */
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    padding: 10px;
+}
+
+/* Product Item */
+.product-item {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 4px 6px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+/* Hover Effects */
+.product-item:hover {
+    transform: scale(1.05);
+    box-shadow: 6px 10px 20px rgba(0, 0, 0, 0.3);
+    background: #fff3cd;
+}
+
+/* Floating Emojis */
+
+
+/* Product Images */
+.product-item img {
+    width: 100%;
+    max-width: 180px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 3px solid #ff7675;
+    transition: transform 0.3s ease-in-out;
+}
+
+.product-item img:hover {
+    transform: rotate(5deg);
+}
+
+/* Buttons */
+button {
+    background: #ff7675;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    padding: 10px 15px;
+    margin-top: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+button:hover {
+    background: #d63031;
+    transform: scale(1.1);
+}
+
+/* Button Icons */
+button::before {
+    content: "🛒";
+    font-size: 18px;
+}
+
+/* Shopping Cart */
+.cart {
+    margin-top: 10px;
+    padding: 15px;
+    background: #fff8e1;
+    border-radius: 10px;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    animation: glow 2s infinite alternate;
+}
+
+/* Glow Effect */
+@keyframes glow {
+    0% { box-shadow: 0 0 10px #ff7675; }
+    100% { box-shadow: 0 0 15px #ff4757; }
+}
+
+/* Cart Header */
+
+/* Cart Items */
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fce4ec;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Cart Item Button */
+.cart-item button {
+    background: #d63031;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .product-list {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .product-list {
+        grid-template-columns: 1fr;
+    }
+
+    /* Reduce button size on small screens */
+    button {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.container, .cart {
+    animation: fadeIn 1s ease-in-out;
+}
